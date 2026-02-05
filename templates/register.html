@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - Todo App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+<body>
+    <div style="margin-top: 100px;" class="ui container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column" style="max-width: 450px;">
+                <h2 class="ui teal image header">
+                    <div class="content">Yeni Hesap Oluştur</div>
+                </h2>
+                <form class="ui large form" method="POST">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Şifre" required>
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button" type="submit">Kayıt Ol</button>
+                    </div>
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        <div class="ui error message" style="display: block;">
+                          <ul class="list">
+                            {% for message in messages %}
+                              <li>{{ message }}</li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    {% endwith %}
+                </form>
+                <div class="ui message">
+                    Zaten hesabınız var mı? <a href="/login">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
